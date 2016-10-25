@@ -1,0 +1,2 @@
+# starter
+## Python Learning Memorandum
