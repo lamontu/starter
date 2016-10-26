@@ -11,16 +11,16 @@ class C(object):
     x = property(getX, setX, delX, "This is 'x' property.")
 
 c = C()
-print('c.x =1:')
+print('c.x =1 >>>>')
 c.x = 1
 print()
 
-print('t = c.x:')
+print('t = c.x >>>>')
 t = c.x
 print('t =', t)
 print()
 
-print('del c.x:')
+print('del c.x >>>>')
 del c.x
 print()
 
