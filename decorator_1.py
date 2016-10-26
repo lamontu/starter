@@ -7,7 +7,8 @@ def deco(func):
     print('call deco')
     return in_deco
 
-@deco
+#Function bar was decorated, adding other parts in the function in_deco
+@deco 
 def bar(x, y):
     print('in bar', x + y)
 
