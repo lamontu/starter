@@ -7,7 +7,7 @@ def my_average(*arg):
     return sum(arg) / len(arg)
 
 def dec(func):
-    def in_dec(*arg): #my_sum, func wos put in cloesure
+    def in_dec(*arg): #my_sum, func was put in cloesure
         print ('in dec arg=', arg)
         if len(arg) == 0:
            return 0
@@ -23,10 +23,10 @@ def dec(func):
 #my_sum = in_dec(*arg)
 my_sum = dec(my_sum)
 
+print('------------------------------')
 print (my_sum(1, 2, 3, 4, 5))
 print (my_sum(1, 2, 3, 4, 5,'6'))
 
-#print (my_average(1, 2, 3, 4, 5))
-#print (my_average())
-                               
-                        
+print('------------------------------')
+print (my_average(1, 2, 3, 4, 5))
+print (my_average())
