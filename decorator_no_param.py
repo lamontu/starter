@@ -15,4 +15,6 @@ def performance(f):
 def factorial(n):
     return functools.reduce(lambda x, y: x * y, range(1, n + 1))
 
+print(factorial.__name__)
+
 print(factorial(10))
