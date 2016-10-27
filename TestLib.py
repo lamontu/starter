@@ -5,8 +5,9 @@
   # When executin TestLib.py, __name__ is __main__.
   # When TestLib.py is imported, __name__ is TestLib
 '''
+
 print('------ >>>>>>')
- 
+
 def lib_func(a):
     return a + 10
 
