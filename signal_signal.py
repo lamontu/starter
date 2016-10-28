@@ -6,7 +6,9 @@ import signal
 def myHandler(signum, frame):
     print('I received:', signum)
 
-# Register signal.SIGTSTP' handler
+
+# Register signal.SIGTSTP's handler
+# SIGTSTP = 18, signal generated from keyboard 
 signal.signal(signal.SIGTSTP, myHandler)
 
 signal.pause()
