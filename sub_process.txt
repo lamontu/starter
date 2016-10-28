@@ -1,0 +1,6 @@
+This is a test file for sub_process_demo.py.
+
+Function subprocess.Popen() returns a subprocess.Popen object.
+
+Function communicate() returns a tuple (stdout, stderr). 
+These will be bytes or, if self.universal_newlines was True, a string.
