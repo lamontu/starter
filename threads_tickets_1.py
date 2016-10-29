@@ -7,6 +7,7 @@ import os
 def doChore():
     time.sleep(0.5)
 
+# function for each thread
 def booth(tid):
     global i
     global lock
@@ -17,7 +18,7 @@ def booth(tid):
             print(tid, ':now left:', i)
             doChore()
         else:
-            print("Thread_id", tid, "No more tickets")
+            print("Thread_id: %d." % tid, "No more tickets.")
             os._exit(0)
         lock.release()
         
@@ -27,6 +28,8 @@ i = 100
 lock = threading.Lock()
 
 for k in range(10):
-    new_thread = threading.Thread(target = booth, args = (k,))
-    new_thread.start()
+    # setup a thread;
+    # target: the callable function to be run, args: the argument for target
+    new_thread = threading.Thread(target = booth, args = (k,)) 
 
+    new_thread.start()
