@@ -12,7 +12,7 @@ class A(object):
         print('func()')
 
 a = A()
-print('A.staticMetho:', A.staticMethod)
+print('A.staticMethod:', A.staticMethod)
 print('A.classMethod:', A.classMethod)
 print('A.func:', A.func)
 
