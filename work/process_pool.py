@@ -1,26 +1,28 @@
 # -*- coding: utf-8 -*-
 
 import multiprocessing
+import subprocess
 import time
 import sys
 import os
 
 
-filehandler = open('download.txt','r')
+filehandler = open('process_pool_web.txt','r')
 filehandler.seek(0)
-textlist = filehandler.readlines()
 
-manger = multiprocessing.Manger()
-l = manger.list()
-for line in textlist:
+l = list()
+for line in filehandler:
     line = line.strip('\n')
     l.append(line)
 lineCount = len(l)
 
 
 def downloadPage(x):
-    print('download %s ------ %s' % (x, l[x]))
-    os.system('wget %s' % l[x])
+    print('<<<<<< Start to download %s --- %s >>>>>>' % (x, l[x]))
+    child = subprocess.Popen(['wget', '-c', ('%s' % l[x]), '-O', ('index-%s.html' % str(x))])
+    child.wait()
+    print('<<<<<< Finish download %s --- %s >>>>>>' % (x, l[x]))
+
 
 pool = multiprocessing.Pool(3)
 for i in range(lineCount):
