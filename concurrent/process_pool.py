@@ -4,7 +4,6 @@ import multiprocessing
 import subprocess
 import time
 import sys
-import os
 
 
 filehandler = open('process_pool_web.txt','r')
@@ -19,7 +18,8 @@ lineCount = len(l)
 
 def downloadPage(x):
     print('<<<<<< Start to download %s --- %s >>>>>>' % (x, l[x]))
-    child = subprocess.Popen(['wget', '-c', ('%s' % l[x]), '-O', ('index-%s.html' % str(x))])
+    cmd = ['wget', '-c', ('%s' % l[x]), '-O', ('index-%s.html' % str(x))] 
+    child = subprocess.Popen(cmd)
     child.wait()
     print('<<<<<< Finish download %s --- %s >>>>>>' % (x, l[x]))
 
@@ -33,4 +33,5 @@ pool.join()
 
 if res.successful():
     print('successful')
+
 
