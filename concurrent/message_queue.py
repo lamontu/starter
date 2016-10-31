@@ -15,7 +15,7 @@ def inputQ(queue):
 def outputQ(queue, lock):  # use lock to prevent messy print
     info = queue.get()
     lock.acquire()
-    print(str(os.getpid()) + '(get):' + info)
+    print(str(os.getpid()) + '(get): ' + '[' + info + ']')
     lock.release()
 
 
