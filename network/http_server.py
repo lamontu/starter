@@ -50,7 +50,7 @@ while True:
     # deal with GET method
     if method == 'GET':
         # URL
-        if src == '/http_sever_img.jpg':
+        if src == '/http_server_img.jpg':
             content = pic_content
         else:
             content = text_content.encode('utf-8')    
