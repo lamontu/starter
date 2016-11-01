@@ -18,7 +18,7 @@ Content-Type: text/html
     <p>Wow, Python Server</p>
     <IMG src="http_server_img.jpg"/>
     <form name="input" action="/" method="post">
-        First name:<input type="text" name=firstname"><br>
+        First name:<input type="text" name="firstname"><br>
         <input type="submit" value="Submit"> 
     </form>
 </body>
