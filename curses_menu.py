@@ -33,7 +33,7 @@ while x != ord('4'):
     screen.clear()
     screen.border(0)
     screen.addstr(2, 2, "Please enter a number...")
-    screen.addstr(4, 4, "1 - Add a user")  # have not implement on OS X
+    screen.addstr(4, 4, "1 - Add a user")  # have not implemented on OS X
     screen.addstr(5, 4, "2 - Login mysql")
     screen.addstr(6, 4, "3 - Show disk space")
     screen.addstr(7, 4, "4 - Exit")
