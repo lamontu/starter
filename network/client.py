@@ -4,7 +4,7 @@ import socket
 
 
 # Address
-HOST = '192.168.2.105'
+HOST = '192.168.2.106'  # using ifconfig to check the correct ip
 PORT = 8000
 
 request = bytes('can you hear me?', 'utf-8')

@@ -4,7 +4,7 @@ import socket
 
 
 # Address
-HOST = ''
+HOST = ''  # visit ip: 127.0.0.1 on local, or use ip found in ifconfig
 PORT = 8000
 
 # Prepare HTTP response
