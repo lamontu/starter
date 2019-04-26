@@ -1,11 +1,6 @@
-# import image_slicer
-# image_slicer.slice('./images/temp.jpg', 15)
-
-from PIL import Image, ImageEnhance, ImageFilter
+from PIL import Image
 import numpy as np
 import cv2
-import pytesseract
-from tesserocr import PyTessBaseAPI
 
 def segment_lines(lines, delta):
     h_lines = []
@@ -55,7 +50,6 @@ i = 0
 image_0 = Image.fromarray(tiles[0])
 slice_file = './images/cellflow' + str(i) + '.png'
 image_0.save(slice_file)
-
 
 
 img = cv2.imread(slice_file)
@@ -132,27 +126,3 @@ cv2.imshow("Center of intersection clusters", img)
 cv2.waitKey(0)
 corner_file = slice_file.replace('.png', '_corner.png')
 cv2.imwrite(corner_file, img)
-
-
-# image_1_1.show()
-# text = pytesseract.image_to_string(image_1_1)
-# print(text)
-
-# with PyTessBaseAPI() as api:
-#     i = 0
-#     for tile in tiles:
-#         image = Image.fromarray(tile)
-#         api.SetImage(image)
-#         size = image.size
-#         w = size[0]//3
-#         h = size[1]//7
-#         area = (4, 4, w, h)
-#         cropped_img = image.crop(area)
-
-#         # cropped_img.show()
-#         crop_name = "./images/res/crop" + str(i) + ".jpg"
-#         cropped_img.save(crop_name)
-#         api.SetImageFile(crop_name)
-#         text = api.GetUTF8Text()
-#         print(text)
-#         i = i + 1

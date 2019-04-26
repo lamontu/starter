@@ -1,7 +1,6 @@
 from PIL import Image
 import numpy as np
 
-
 image=Image.open('./images/cellflow.jpg')
 image.load()
 
