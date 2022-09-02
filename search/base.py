@@ -1,3 +1,4 @@
+import os
 
 class SearchEngineBase(object):
     def __init__(self):
@@ -15,11 +16,15 @@ class SearchEngineBase(object):
         raise Exception('search not implemented.')
 
 def main(search_engine):
+    os.chdir(os.path.dirname(__file__))
     for file_path in ['1.txt', '2.txt', '3.txt', '4.txt', '5.txt']:
         search_engine.add_corpus(file_path)
 
     while True:
         query = input()
+        if not query:
+            print('enter your search term:')
+            continue
         results = search_engine.search(query)
         print('found {} result(s):'.format(len(results)))
         for result in results:

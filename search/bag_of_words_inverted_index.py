@@ -71,8 +71,9 @@ class BOWInvertedIndexEngine(SearchEngineBase):
         # 返回单词的 set
         return set(word_list)
 
-search_engine = BOWInvertedIndexEngine()
-main(search_engine)
+if __name__ == '__main__':
+    search_engine = BOWInvertedIndexEngine()
+    main(search_engine)
 
 
 ########## 输出 ##########
