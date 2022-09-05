@@ -62,7 +62,7 @@ class Machine(object):
 
         if op in dispatch_map:
             dispatch_map[op]()
-        elif isinstance(op, int):
+        elif isinstance(op, int) or isinstance(op, float):
             self.push(op)
         elif isinstance(op, str) and op[0] == op[-1] == '"':
             self.push(op[1:-1])
@@ -166,7 +166,7 @@ def parse(text):
             yield int(tokval)
         elif toknum in [tokenize.OP, tokenize.STRING, tokenize.NAME]:
             yield tokval
-        elif toknum == tokenize.ENDMARKER:
+        elif toknum in [tokenize.ENDMARKER, tokenize.NEWLINE]:
             break
         else:
             raise RuntimeError("Unknown token %s: '%s'" %
