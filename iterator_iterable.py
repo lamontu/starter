@@ -46,6 +46,3 @@ def is_subsequence(a, b):
 
 print(is_subsequence([1, 3, 5], [1, 2, 3, 4, 5]))
 print(is_subsequence([1, 4, 3], [1, 2, 3, 4, 5]))
-
-
-

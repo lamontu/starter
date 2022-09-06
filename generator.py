@@ -50,6 +50,3 @@ print('--------')
 
 test_generator()
 print('--------')
-
-
-
