@@ -19,20 +19,22 @@ def proc2(pipe):
     pipe.send('hello, too')
     print('process 2 <<<<')
 
+def main():
+    ctx = mul.get_context('spawn')
+    # Build a pipe
+    pipe = ctx.Pipe()
 
-# Build a pipe
-pipe = mul.Pipe()
+    # Pass an end of the pipe to process 1
+    p1 = ctx.Process(target=proc1, args=(pipe[0],))
 
+    # Pass the other end of the pipe to process 2
+    p2 = ctx.Process(target=proc2, args=(pipe[1],))
 
-# Pass an end of the pipe to process 1
-p1 = mul.Process(target=proc1, args=(pipe[0],))
+    p1.start()
+    p2.start()
+    p1.join()
+    p2.join()
 
-# Pass the other end of the pipe to process 2
-p2 = mul.Process(target=proc2, args=(pipe[1],))
-
-p1.start()
-p2.start()
-p1.join()
-p2.join()
-
-
+ # it's required to avoid RuntimeError if multiprocessing API was called on get_context('spawn')
+if __name__ == '__main__':
+    main()
