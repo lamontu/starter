@@ -60,7 +60,8 @@ async def main_async():
         urls_to_fetch.append(all_a_tag[1]['href'])
         movie_dates.append(all_li_tag[0].text)
 
-    tasks = [fetch_content(url) for url in urls_to_fetch]
+    # tasks = [fetch_content(url) for url in urls_to_fetch]
+    tasks = [asyncio.create_task(fetch_content(url)) for url in urls_to_fetch]
     pages = await asyncio.gather(*tasks)
 
     for movie_name, movie_date, page in zip(movie_names, movie_dates, pages):
