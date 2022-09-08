@@ -32,14 +32,29 @@ start = time.perf_counter()
 asyncio.run(main2(URL_LIST))
 end = time.perf_counter()
 print(f'time = {end - start}')
+print('--------')
 
 async def main3(urls):
-    tasks = [asyncio.create_task(crawl_page_asnyc(url)) for url in urls]
+    tasks = [crawl_page_asnyc(url) for url in urls]
+    # the for loop will be slower than gather call
+    await asyncio.gather(*tasks)
     # for task in tasks:
     #     await task
-    await asyncio.gather(*tasks)
 
 start = time.perf_counter()
 asyncio.run(main3(URL_LIST))
+end = time.perf_counter()
+print(f'time = {end - start}')
+print('--------')
+
+async def main4(urls):
+    tasks = [asyncio.create_task(crawl_page_asnyc(url)) for url in urls]
+    # the for loop will be same as the gather call
+    await asyncio.gather(*tasks)
+    # for task in tasks:
+    #     await task
+
+start = time.perf_counter()
+asyncio.run(main4(URL_LIST))
 end = time.perf_counter()
 print(f'time = {end - start}')
